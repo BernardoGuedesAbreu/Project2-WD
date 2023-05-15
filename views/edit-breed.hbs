@@ -1,0 +1,79 @@
+<h1>Edit Breed</h1>
+<form action="/dogs/{{breed._id}}/edit" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value="{{breed.name}}" required />
+  <br />
+  <label for="image">Image URL:</label>
+  <input
+    type="text"
+    id="image"
+    name="image"
+    value="{{breed.image.url}}"
+    required
+  />
+  <br />
+  <label for="weight">Weight:</label>
+  <input
+    type="text"
+    id="weight"
+    name="weight"
+    value="{{breed.weight.metric}}"
+    required
+  />
+  <br />
+  <label for="height">Height:</label>
+  <input
+    type="text"
+    id="height"
+    name="height"
+    value="{{breed.height.metric}}"
+    required
+  />
+  <br />
+  <label for="breed_group">Breed Group:</label>
+  <input
+    type="text"
+    id="breed_group"
+    name="breed_group"
+    value="{{breed.breed_group}}"
+    required
+  />
+  <br />
+  <label for="life_span">Life Span:</label>
+  <input
+    type="text"
+    id="life_span"
+    name="life_span"
+    value="{{breed.life_span}}"
+    required
+  />
+  <br />
+  <label for="bred_for">Bred For:</label>
+  <input
+    type="text"
+    id="bred_for"
+    name="bred_for"
+    value="{{breed.bred_for}}"
+    required
+  />
+  <br />
+  <label for="temperament">Temperament:</label>
+  <input
+    type="text"
+    id="temperament"
+    name="temperament"
+    value="{{breed.temperament}}"
+    required
+  />
+  <br />
+  <label for="origin">Origin:</label>
+  <input
+    type="text"
+    id="origin"
+    name="origin"
+    value="{{breed.origin}}"
+    required
+  />
+  <br />
+  <button type="submit">Update Breed</button>
+</form>

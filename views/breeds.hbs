@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Dog Breeds</title>
-  </head>
-  <body>
-    <h1>All Dog Breeds</h1>
-    <ul>
+
+    <h1>Dog Breeds</h1>
+
+    <h1>PLACEHOLDER FOR FILTERS</h1>
+ 
+    <div class="grid-container">
       {{#each breeds}}
-      <li>{{this.name}}</li>
-      <img src="{{image}}" alt="{{name}} Image">
-      {{/each}}
-    </ul>
-  </body>
-</html>
+        <div class="breed-item">
+          <img src="{{image.url}}" alt="{{name}} Image">
+          <h2><a href="/dogs/{{_id}}">{{name}}</a></h2>
+          <a href="/dogs/{{_id}}/edit">Edit</a>
+          <form action="/dogs/{{_id}}" method="POST" class="delete-form">
+        <button type="submit" class="delete-button">Delete</button>
+      </form>
+    </div>
+  {{/each}}
+</div>
+
+<script>
+  const deleteForms = document.querySelectorAll(".delete-form");
+  deleteForms.forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const confirmed = confirm("Are you sure you want to delete this dog breed?");
+      if (confirmed) {
+        const url = form.getAttribute("action");
+        try {
+          const response = await fetch(url, {
+            method: "DELETE",
+          });
+          if (response.ok) {
+            form.parentNode.remove();
+          } else {
+            console.error("Failed to delete the dog breed.");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    });
+  });
+</script>
+      
+      
+    </div>

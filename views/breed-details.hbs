@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breed Details</title>
+</head>
+<body>
+  <h1>{{ breed.name }}</h1>
+  <img src="{{ breed.image.url }}" alt="{{ breed.name }}">
+  <p>Weight: {{ breed.weight.metric }} Kg</p>
+  <p>Height: {{ breed.height.metric }} cm</p>
+  <p>Breed Group: {{ breed.breed_group }}</p>
+  <p>Life Span: {{ breed.life_span }}</p>
+  <p>Bred For: {{ breed.bred_for }}</p>
+  <p>Temperament: {{ breed.temperament }}</p>
+  <p>Origin: {{ breed.origin }}</p>
+  <a href="/dogs">Back to Breeds</a>
+</body>
+</html>

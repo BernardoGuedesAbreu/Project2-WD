@@ -1,0 +1,40 @@
+<!-- create-breed.hbs -->
+<form action="/dogs/create" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="imageId">Image ID:</label>
+  <input type="text" id="imageId" name="image[id]" required>
+
+  <label for="imageWidth">Image Width:</label>
+  <input type="number" id="imageWidth" name="image[width]" required>
+
+  <label for="imageHeight">Image Height:</label>
+  <input type="number" id="imageHeight" name="image[height]" required>
+
+  <label for="imageUrl">Image URL:</label>
+  <input type="url" id="imageUrl" name="image[url]" required>
+
+  <label for="weightMetric">Weight (Metric):</label>
+  <input type="text" id="weightMetric" name="weight[metric]" required>
+
+  <label for="heightMetric">Height (Metric):</label>
+  <input type="text" id="heightMetric" name="height[metric]" required>
+
+  <label for="breedGroup">Breed Group:</label>
+  <input type="text" id="breedGroup" name="breed_group" required>
+
+  <label for="lifeSpan">Life Span:</label>
+  <input type="text" id="lifeSpan" name="life_span" required>
+
+  <label for="bredFor">Bred For:</label>
+  <input type="text" id="bredFor" name="bred_for" required>
+
+  <label for="temperament">Temperament:</label>
+  <input type="text" id="temperament" name="temperament" required>
+
+  <label for="origin">Origin:</label>
+  <input type="text" id="origin" name="origin" required>
+
+  <button type="submit">Create Breed</button>
+</form>
