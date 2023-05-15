@@ -55,57 +55,6 @@ router.get("/dogs", async (req, res) => {
   }
 });
 
-//create a new dog
-
-router.post("/dogs/create", async (req, res) => {
-  try {
-    const {
-      name,
-      image,
-      weight,
-      height,
-      breed_group,
-      life_span,
-      bred_for,
-      temperament,
-      origin,
-    } = req.body;
-    
-
-    await DogBreed.create({
-      name,
-      image: {
-        id: image.id,
-        width: image.width,
-        height: image.height,
-        url: image.url,
-      },
-      weight,
-      height,
-      breed_group,
-      life_span,
-      bred_for,
-      temperament,
-      origin,
-    });
-
-    res.redirect("/dogs");
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  }
-});
-
-
-//user sess
-router.use(
-  session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
 // signup form
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
@@ -164,6 +113,11 @@ router.get("/dashboard", (req, res) => {
   res.render("/auth/dashboard", { username: req.session.user.username });
 });
 
+//create route
+router.get("/dogs/create", (req, res) => {
+  res.render("create-breed");
+});
+
 // View breed details
 router.get("/dogs/:id", async (req, res) => {
   try {
@@ -218,13 +172,56 @@ router.post("/dogs/:id/edit", async (req, res) => {
   }
 });
 
-//create route
-router.get("/dogs/create", (req, res) => {
-  res.render("create-breed");
+//create a new dog
+
+router.post("/dogs/create", async (req, res) => {
+  try {
+    const {
+      name,
+      image,
+      weight,
+      height,
+      breed_group,
+      life_span,
+      bred_for,
+      temperament,
+      origin,
+    } = req.body;
+
+    console.log("test");
+
+    await DogBreed.create({
+      name,
+      image: {
+        id: image.id,
+        width: image.width,
+        height: image.height,
+        url: image.url,
+      },
+      weight,
+      height,
+      breed_group,
+      life_span,
+      bred_for,
+      temperament,
+      origin,
+    });
+
+    res.redirect("/dogs");
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 });
 
-
-
+//user sess
+router.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // deleting a dog
 router.delete("/dogs/:id", async (req, res) => {
