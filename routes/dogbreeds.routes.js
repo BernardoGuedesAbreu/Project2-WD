@@ -13,12 +13,16 @@ router.get("/dogs", async (req, res) => {
 
     if (!createdBreeds.length) {
       const apiCall = await axios.get("https://api.thedogapi.com/v1/breeds");
-      apiCall.data.forEach((breed) => DogBreed.create({ name: breed.name }));
+      apiCall.data.forEach(async (breed) => {
+        const { name, image } = breed;
+        const imageUrl = image.url; // Extract the image URL from the API response
+        console.log("image url", imageUrl)
+        await DogBreed.create({ name, image: imageUrl });
+      });
     }
 
     const savedBreeds = await DogBreed.find();
 
-    // Render the breeds page using HBS template
     res.render("breeds", { breeds: savedBreeds });
   } catch (error) {
     console.error(error);
