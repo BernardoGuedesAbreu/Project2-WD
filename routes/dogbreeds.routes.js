@@ -57,12 +57,68 @@ router.get("/dogs", async (req, res) => {
     res.sendStatus(500);
   }
 });
+// Filter dog breeds based on criteria
+router.get("/dogs/filter", async (req, res) => {
+  try {
+    const temperaments = await DogBreed.distinct("temperament");
+    res.render("filter-form", { temperaments });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+// Handle filtering and render filtered results
+router.post("/dogs/filter/results", async (req, res) => {
+  try {
+    const { temperament, minWeight, maxWeight, minHeight, maxHeight } = req.body;
+
+    // Prepare filter conditions based on the provided criteria
+    const filter = {};
+
+    if (temperament) {
+      filter.temperament = temperament;
+    }
+
+    if (minWeight || maxWeight) {
+      filter.$and = [];
+
+      if (minWeight) {
+        filter.$and.push({ "weight.metric": { $gte: minWeight } });
+      }
+
+      if (maxWeight) {
+        filter.$and.push({ "weight.metric": { $lte: maxWeight } });
+      }
+    }
+
+    if (minHeight || maxHeight) {
+      filter.$and = [];
+
+      if (minHeight) {
+        filter.$and.push({ "height.metric": { $gte: minHeight } });
+      }
+
+      if (maxHeight) {
+        filter.$and.push({ "height.metric": { $lte: maxHeight } });
+      }
+    }
+
+    const filteredBreeds = await DogBreed.find(filter);
+    res.render("filtered-breeds", { breeds: filteredBreeds });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
 
 
 //create route
 router.get("/dogs/create", (req, res) => {
   res.render("create-breed");
 });
+
 
 // View breed details
 router.get("/dogs/:id", async (req, res) => {
@@ -242,6 +298,9 @@ router.post("/favorites/delete/:id", isLoggedIn, async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+
+
 
 
 module.exports = router;
