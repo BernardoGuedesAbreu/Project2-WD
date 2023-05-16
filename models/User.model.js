@@ -9,11 +9,12 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
     },
-    
+
     password: {
       type: String,
       required: true,
     },
+    favorites: [{ type: Schema.Types.ObjectId, ref: "DogBreed" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

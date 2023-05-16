@@ -1,1 +1,9 @@
-<h1>My favourite Breeds!</h1>
+<h1>Welcome, {{userWithFavorites.username}}!</h1>
+{{#each userWithFavorites.favorites}}
+  <img src="{{image.url}}" alt="dog">
+  <h2><a href="/dogs/{{_id}}">{{name}}</a></h2>
+  <form action="/favorites/delete/{{_id}}" method="POST">
+    <button type="submit">Remove from Favorites</button>
+  </form>
+{{/each}}
+

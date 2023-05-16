@@ -3,8 +3,11 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const session = require("express-session");
+const isLoggedIn = require("../middleware/isLoggedIn")
+const isLoggedOut = require("../middleware/isLoggedOut")
 
 const DogBreed = require("../models/Dogbreed.model");
+const User = require("../models/User.model")
 
 // Fetch dog breeds, save them to the database, and display them
 router.get("/dogs", async (req, res) => {
@@ -55,63 +58,6 @@ router.get("/dogs", async (req, res) => {
   }
 });
 
-// signup form
-router.get("/signup", (req, res) => {
-  res.render("auth/signup");
-});
-
-router.post("/signup", async (req, res) => {
-  const { username, password } = req.body;
-
-  // Hash the password using bcrypt
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  // Save the user in your data store
-
-  res.redirect("/login");
-});
-
-//login
-router.get("/login", (req, res) => {
-  res.render("auth/login");
-});
-
-router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-
-  // Retrieve the user from your data store based on the username
-
-  // Compare the provided password with the stored hashed password using bcrypt
-  const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
-
-  if (passwordMatch) {
-    // Store user information in the session
-    req.session.user = {
-      username: user.username,
-    };
-
-    res.redirect("/dashboard");
-  } else {
-    res.render("/auth/login", { error: "Invalid username or password" });
-  }
-});
-
-//logout
-router.get("/logout", (req, res) => {
-  // Destroy the session to log out the user
-  req.session.destroy();
-  res.redirect("/login");
-});
-
-//authenticated area
-router.get("/dashboard", (req, res) => {
-  // Check if the user is authenticated
-  if (!req.session.user) {
-    return res.redirect("/login");
-  }
-
-  res.render("/auth/dashboard", { username: req.session.user.username });
-});
 
 //create route
 router.get("/dogs/create", (req, res) => {
@@ -193,13 +139,15 @@ router.post("/dogs/create", async (req, res) => {
     await DogBreed.create({
       name,
       image: {
-        id: image.id,
-        width: image.width,
-        height: image.height,
-        url: image.url,
+        url: image
       },
-      weight,
-      height,
+      weight: {
+        metric: weight
+      },
+
+      height:{
+        metric: height
+      },
       breed_group,
       life_span,
       bred_for,
@@ -214,7 +162,7 @@ router.post("/dogs/create", async (req, res) => {
   }
 });
 
-//user sess
+//user session
 router.use(
   session({
     secret: "your-secret-key",
@@ -234,4 +182,66 @@ router.delete("/dogs/:id", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+
+
+
+
+// POST route to add a breed to user's favorites
+router.post("/dogs/:id/favorite", isLoggedIn, async (req, res) => {
+  try {
+    const breed = await DogBreed.findById(req.params.id);
+    if (!breed) {
+      return res.sendStatus(404);
+    }
+
+    const currentUser = req.session.currentUser;
+
+    // Update the favorites array of the current user
+    await User.findByIdAndUpdate(currentUser._id, {
+      $addToSet: { favorites: breed._id },
+    });
+
+    res.redirect("/dogs");
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+
+
+
+// View favorite breeds
+router.get("/dashboard", isLoggedIn, async (req, res) => {
+  try {
+    const currentUser = req.session.currentUser;
+    const userWithFavorites = await User.findById(currentUser._id).populate("favorites");
+
+    res.render("auth/dashboard", { userWithFavorites });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+// Delete a breed from user's favorites
+router.post("/favorites/delete/:id", isLoggedIn, async (req, res) => {
+  try {
+    const breedId = req.params.id;
+    const currentUser = req.session.currentUser;
+
+    // Update the favorites array of the current user
+    await User.findByIdAndUpdate(currentUser._id, {
+      $pull: { favorites: breedId },
+    });
+
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
+
 module.exports = router;
