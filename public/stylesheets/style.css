@@ -1,8 +1,3 @@
-body {
-  padding:15px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 a {
   color: #00b7ff;
 }
@@ -11,23 +6,269 @@ h1 {
   color: 15px;
 }
 
-
-
-/* Styles for breeds.hbs */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Display 3 columns with equal width */
-  gap: 20px; /* Gap between grid items */
+/* styling the filter form!!!!!!!!/
+/* Form container */
+.form-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
 }
 
+/* Form group */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Checkboxes */
+.form-check {
+  display: inline-block;
+  margin-right: 10px;
+  width: calc(
+    100% / 8
+  ); /* Adjust the width based on the number of checkboxes per row */
+}
+
+/* Submit button */
+button[type="submit"] {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+/* style the PawPal page*/
+
+#indexDiv {
+  background-image: url("/images/backgroundIndex.jpg");
+  background-size: cover;
+}
+
+#titleIndex {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 15px;
+  color: white;
+  text-shadow: 2px 2px 4px #ffa884;
+}
+#pawPalText {
+  margin-right: 900px;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+}
+
+#pawPalbody {
+  margin-right: 870px;
+  margin-top: 300px;
+  text-align: center;
+  font-size: 50px;
+  color: #ffa884;
+}
+
+#indexButton {
+  margin-left: 21%;
+  margin-top: 4%;
+}
+
+.indexButtonItem {
+  margin-right: 50px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #ffa884;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  transition: 1s;
+}
+
+.indexButtonItem:hover {
+  transform: scale(1.2);
+}
+
+/* Styling breeds page!!!! ------*/
+#breedsH1 {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px 4px #ffa884;
+  
+}
+#breedsBody {
+  background-color: rgba(255, 168, 132, 0.4);
+  margin-left: 7%;
+  margin-right: 7%;
+
+}
+.grid-container {
+  margin-top: 10%;
+  display: grid;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Display 3 columns with equal width */
+  gap: 30px; /* Gap between grid items */
+}
+
+
+
 .breed-item {
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.breed-item img {
-  width: 90%; /* Adjust the width of the image to fit the container */
-  max-height: 300px; /* Set the maximum height of the image */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  /* Adjust the width as needed */
+  display: flex;
+  flex-direction: column;
+  background-image: url("/images/testBck2.png");
+}
+
+.card-img {
+  width: calc(100% - 20px);
+  height: 200px;
+  /* Set a fixed height for the images */
+
+  margin: 10px;
+  /* Add margin for spacing */
+  border: 2px solid black;
+  /* Define the border color */
+  object-fit: cover;
+  object-position: 20% 10%;
+}
+
+.card-body {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.card-title {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+#breedsBody .favorite-button {
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 33%;
+  
+}
+
+#breedsBody .delete-button{
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 33%;
+
+}
+#breedsBody .card-link{
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90px;
+  text-decoration: none;
+  margin-left: 33%;
+  
+}
+/* #ffa884; */
+
+
+/* Styling SIGNUP _----------*/
+
+
+
+
+#signUpBody {
+
+    background-image: url("/images/signupbck.png");
+}
+
+#signUpform {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10%;
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+#signUpform h2 {
+  margin-bottom: 20px;
+}
+
+#signUpform form {
+  display: flex;
+  flex-direction: column;
+}
+
+#signUpform label {
+  margin-bottom: 10px;
+}
+
+#signUpform input[type="text"],
+#signUpform input[type="password"] {
+  padding: 5px;
+  width: 200px;
+}
+
+#signUpform button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#signUpform button:hover {
+  background-color: #45a049;
+}
+
+#signUpform .error {
+  color: red;
+}
+
+#signUpH2{
+  color: #ffa884;
 }

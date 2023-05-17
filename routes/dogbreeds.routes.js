@@ -57,16 +57,34 @@ router.get("/dogs", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
 // Filter dog breeds based on criteria
 router.get("/dogs/filter", async (req, res) => {
   try {
-    const temperaments = await DogBreed.distinct("temperament");
+    const temperamentsArray = await DogBreed.aggregate([
+      { $project: { _id: 0, temperament: 1 } },
+      { $unwind: "$temperament" },
+      { $project: { _id: 0, temperament: { $split: ["$temperament", ", "] } } },
+      { $unwind: "$temperament" },
+      { $group: { _id: null, temperaments: { $addToSet: "$temperament" } } },
+      { $project: { _id: 0, temperaments: 1 } },
+      { $unwind: "$temperaments" },
+      { $sort: { "temperaments": 1 } },
+      { $group: { _id: null, temperaments: { $push: "$temperaments" } } },
+      { $project: { _id: 0, temperaments: 1 } },
+    ]);
+
+    const temperaments = temperamentsArray.length > 0 ? temperamentsArray[0].temperaments : [];
+
     res.render("filter-form", { temperaments });
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
   }
 });
+
+
+
 
 // Handle filtering and render filtered results
 router.post("/dogs/filter/results", async (req, res) => {
@@ -77,7 +95,16 @@ router.post("/dogs/filter/results", async (req, res) => {
     const filter = {};
 
     if (temperament) {
-      filter.temperament = temperament;
+      const selectedTemperaments = Array.isArray(temperament)
+        ? temperament
+        : [temperament];
+
+      // Perform case-insensitive search for temperaments
+      const temperamentRegex = selectedTemperaments.map((temp) =>
+        new RegExp(temp, "i")
+      );
+
+      filter.temperament = { $in: temperamentRegex };
     }
 
     if (minWeight || maxWeight) {
@@ -93,7 +120,7 @@ router.post("/dogs/filter/results", async (req, res) => {
     }
 
     if (minHeight || maxHeight) {
-      filter.$and = [];
+      filter.$and = filter.$and || [];
 
       if (minHeight) {
         filter.$and.push({ "height.metric": { $gte: minHeight } });
@@ -111,6 +138,8 @@ router.post("/dogs/filter/results", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+
 
 
 

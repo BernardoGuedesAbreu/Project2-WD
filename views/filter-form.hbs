@@ -1,14 +1,16 @@
-<!-- filter-form.hbs -->
 
-<form action="/dogs/filter/results" method="post">
+
+<form action="/dogs/filter/results" method="post" class="form-container">
   <div class="form-group">
-    <label for="temperament">Temperament:</label>
-    <select name="temperament" id="temperament" class="form-control">
-      <option value="">-- Select temperament --</option>
+    <label>Temperament:</label>
+    <div>
       {{#each temperaments}}
-        <option value="{{this}}">{{this}}</option>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" name="temperament" id="{{this}}" value="{{this}}" class="form-check-input">
+          <label class="form-check-label" for="{{this}}">{{this}}</label>
+        </div>
       {{/each}}
-    </select>
+    </div>
   </div>
 
   <div class="form-group">
@@ -31,5 +33,5 @@
     <input type="number" name="maxHeight" id="maxHeight" class="form-control">
   </div>
 
-  <button type="submit" class="btn btn-primary">Filter</button>
+  <button type="submit" class="btn btn-primary">Find the perfect breed for you!</button>
 </form>

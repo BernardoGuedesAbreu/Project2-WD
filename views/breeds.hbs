@@ -1,22 +1,29 @@
-<h1>Dog Breeds</h1>
-
-<a href="/dogs/filter" class="btn btn-primary">Filter Breeds</a>
-
-<div class="grid-container">
-  {{#each breeds}}
-    <div class="breed-item">
-      <img src="{{image.url}}" alt="{{name}} Image">
-      <h2><a href="/dogs/{{_id}}">{{name}}</a></h2>
-      <form action="/dogs/{{_id}}/favorite" method="POST">
-        <button type="submit" class="favorite-button">Favorite</button>
-      </form>
-      <a href="/dogs/{{_id}}/edit">Edit</a>
-      <form action="/dogs/{{_id}}" method="POST" class="delete-form">
-        <button type="submit" class="delete-button">Delete</button>
-      </form>
+<body>
+  <div id="breedsBody">
+    <h1 id="breedsH1">Dog Breeds</h1>
+    <a href="/dogs/filter" class="btn btn-primary">Filter Breeds</a>
+    <div class="grid-container">
+      {{#each breeds}}
+        <div class="breed-item">
+          <div class="card">
+            <img src="{{image.url}}" alt="{{name}} Image" class="card-img img-with-border">
+            <div class="card-body">
+              <h2><a href="/dogs/{{_id}}" class="card-title">{{name}}</a></h2>
+              <form action="/dogs/{{_id}}/favorite" method="POST">
+                <button type="submit" class="favorite-button">Favorite</button>
+              </form>
+              <a href="/dogs/{{_id}}/edit" class="card-link">Edit</a>
+              <form action="/dogs/{{_id}}" method="POST" class="delete-form">
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
-</div>
+  </div>
+</body>
+
 
 <script>
   const deleteForms = document.querySelectorAll(".delete-form");
