@@ -1,35 +1,58 @@
-<!-- create-breed.hbs -->
-<form action="/dogs/create" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
 
+ <body>
   
-
+<div id="createBody">
+  <h1 id="createTitle">Update our Database!</h1>
   
+  
+  <form action="/dogs/create" method="POST" id="createForm">
+    <div class="form-row">
+      <div class="form-column">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-  <label for="image">Image URL:</label>
-  <input type="url" id="imageUrl" name="image" required>
+        <label for="image">Image URL:</label>
+        <input type="url" id="imageUrl" name="image" required>
 
-  <label for="weightMetric">Weight (Metric):</label>
-  <input type="text" id="weightMetric" name="weight" required>
+        <label for="weightMetric">Weight (Metric):</label>
+        <input type="text" id="weightMetric" name="weight" required>
+      </div>
 
-  <label for="heightMetric">Height (Metric):</label>
-  <input type="text" id="heightMetric" name="height" required>
+      <div class="form-column">
+        <label for="heightMetric">Height (Metric):</label>
+        <input type="text" id="heightMetric" name="height" required>
 
-  <label for="breedGroup">Breed Group:</label>
-  <input type="text" id="breedGroup" name="breed_group" required>
+        <label for="breedGroup">Breed Group:</label>
+        <input type="text" id="breedGroup" name="breed_group" required>
 
-  <label for="lifeSpan">Life Span:</label>
-  <input type="text" id="lifeSpan" name="life_span" required>
+        <label for="lifeSpan">Life Span:</label>
+        <input type="text" id="lifeSpan" name="life_span" required>
+      </div>
+    </div>
 
-  <label for="bredFor">Bred For:</label>
-  <input type="text" id="bredFor" name="bred_for" required>
+    <div class="form-row">
+      <div class="form-column">
+        <label for="bredFor">Bred For:</label>
+        <input type="text" id="bredFor" name="bred_for" required>
+      </div>
 
-  <label for="temperament">Temperament:</label>
-  <input type="text" id="temperament" name="temperament" required>
+      <div class="form-column">
+        <label for="temperament">Temperament:</label>
+        <input type="text" id="temperament" name="temperament" required>
+      </div>
+    </div>
 
-  <label for="origin">Origin:</label>
-  <input type="text" id="origin" name="origin" required>
+    <div class="form-row">
+      <div class="form-column">
+        <label for="origin"id="originLabel">Origin:</label>
+        <input type="text" id="origin" name="origin" required>
+      </div>
+    </div>
 
-  <button type="submit">Create Breed</button>
-</form>
+    <div class="form-row">
+      <button type="submit" id="createBtn">Create Breed</button>
+    </div>
+  </form>
+  </div>
+</body>
+

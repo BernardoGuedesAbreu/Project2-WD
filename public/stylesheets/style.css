@@ -1,58 +1,82 @@
-a {
-  color: #00b7ff;
+a,
+a:link,
+a:visited,
+a:hover,
+a:active{
+    text-decoration: none;
 }
 
-h1 {
-  color: 15px;
+
+/* styling the FILTER FORM------------------*/
+
+#filterBody{
+  background-image: url("/images/testbckfilter.png");
+  background-size:cover;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  
 }
 
-/* styling the filter form!!!!!!!!/
-/* Form container */
 .form-container {
-  max-width: 1100px;
+  max-width: 900px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
+  padding: 10px;
+  background-color:#f6af91;
   border-radius: 5px;
 }
 
-/* Form group */
 .form-group {
   margin-bottom: 15px;
 }
 
-/* Label */
+
 label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+ font-size: 13px;
 }
 
-/* Checkboxes */
+#filterInput{
+  display:flex;
+  justify-content: space-around;
+  margin-left: 5%;
+
+}
+
+.form-control{
+  width: 40%;
+
+}
+
 .form-check {
   display: inline-block;
   margin-right: 10px;
   width: calc(
     100% / 8
-  ); /* Adjust the width based on the number of checkboxes per row */
+  ); 
 }
 
-/* Submit button */
+
 button[type="submit"] {
   display: block;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color:#f6af91;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 30%;
+  border: 3px solid #f58250;
 }
 
 button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #f58250;
 }
-/* style the PawPal page*/
+/* Styling the PawPal page-------------*/
 
 #indexDiv {
   background-image: url("/images/backgroundIndex.jpg");
@@ -96,7 +120,7 @@ button[type="submit"]:hover {
   color: black;
   text-decoration: none;
   text-align: center;
-  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  transition: background-color 0.3s ease; 
   transition: 1s;
 }
 
@@ -126,8 +150,8 @@ button[type="submit"]:hover {
   grid-template-columns: repeat(
     4,
     1fr
-  ); /* Display 3 columns with equal width */
-  gap: 30px; /* Gap between grid items */
+  ); 
+  gap: 30px; 
 }
 
 
@@ -145,7 +169,6 @@ button[type="submit"]:hover {
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 300px;
-  /* Adjust the width as needed */
   display: flex;
   flex-direction: column;
   background-image: url("/images/testBck2.png");
@@ -154,12 +177,8 @@ button[type="submit"]:hover {
 .card-img {
   width: calc(100% - 20px);
   height: 200px;
-  /* Set a fixed height for the images */
-
   margin: 10px;
-  /* Add margin for spacing */
   border: 2px solid black;
-  /* Define the border color */
   object-fit: cover;
   object-position: 20% 10%;
 }
@@ -185,7 +204,7 @@ button[type="submit"]:hover {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  width: 90px;
+  width: 110px;
   margin-left: 33%;
   
 }
@@ -196,7 +215,7 @@ button[type="submit"]:hover {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  width: 90px;
+  width: 110px;
   margin-left: 33%;
 
 }
@@ -206,7 +225,7 @@ button[type="submit"]:hover {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  width: 90px;
+  width: 110px;
   text-decoration: none;
   margin-left: 33%;
   
@@ -220,8 +239,10 @@ button[type="submit"]:hover {
 
 
 #signUpBody {
-
-    background-image: url("/images/signupbck.png");
+    background-image: url("/images/backgroundsignup.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #signUpform {
@@ -230,8 +251,8 @@ button[type="submit"]:hover {
   border-radius: 5px;
   text-align: center;
   margin-top: 10%;
-  margin-left: 33%;
-  margin-right: 33%;
+  margin-left: 31%;
+  margin-right: 35%;
 }
 
 #signUpform h2 {
@@ -255,14 +276,17 @@ button[type="submit"]:hover {
 
 #signUpform button {
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color:#ffa884;
   color: #fff;
   border: none;
   cursor: pointer;
+  height: 5%;
+  width: 30%;
+  margin-left: 35%;
 }
 
 #signUpform button:hover {
-  background-color: #45a049;
+  background-color: #fa9063;
 }
 
 #signUpform .error {
@@ -271,4 +295,445 @@ button[type="submit"]:hover {
 
 #signUpH2{
   color: #ffa884;
+}
+
+/* Styling LOGIN ------------*/
+#loginBody {
+  background-image: url("/images/bcklogin.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#login-form {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+text-align: center;
+margin-top: 10%;
+margin-left: 30%;
+margin-right: 36%;
+}
+
+#login-form h2 {
+margin-bottom: 20px;
+}
+
+#login-form form {
+display: flex;
+flex-direction: column;
+}
+
+#login-form label {
+margin-bottom: 10px;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+padding: 5px;
+width: 200px;
+}
+
+#login-form button {
+padding: 10px 20px;
+background-color:#ffa884;
+color: #fff;
+border: none;
+cursor: pointer;
+height: 5%;
+width: 30%;
+margin-left: 35%;
+}
+
+#logi-nform button:hover {
+background-color: #fa9063;
+}
+
+#login-form .error {
+color: red;
+}
+
+#loginH2{
+color: #ffa884;
+}
+
+/* Styling EDIT BREEDS ---------------*/
+#editBody{
+  background-image: url("/images/bckedit.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+
+}
+.form-heading {
+  text-align: center;
+  color: #ffa884;
+  -webkit-text-stroke: 1px black;
+ 
+  
+}
+
+.edit-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffa884;
+  border-radius: 5px;
+  
+}
+
+.form-row {
+  flex: 0 0 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 10vw;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#editBtn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #ffa884;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#editBtn:hover {
+  background-color: #f9773f;
+}
+
+
+/* Styling FAVORITES --------------*/
+
+
+
+
+#favoritesBody {
+  background-color: rgba(255, 168, 132, 0.4);
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+#favoritesBody .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+#favoritesBody .breed-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  text-align: center;
+ 
+}
+
+
+#favoritesBody .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/images/testBck2.png");
+
+}
+
+#favoritesBody .card-img {
+  width: calc(100% - 20px);
+  height: 200px;
+  margin: 10px;
+  border: 2px solid black;
+  object-fit: cover;
+  object-position: 20% 10%;
+}
+
+#favoritesBody .card-body {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+#favoritesBody .card:hover {
+  transform: scale(1.05); /* Increase the size of the card on hover */
+}
+
+#favoritesBody .card {
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+
+}
+
+#favoritesBody .card-title {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+#favoritesBody .favorite-button {
+  background-color: #ffa884;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 190px;
+  margin: 0 auto; 
+  margin-top: 10px; 
+  
+}
+#favoritesH1 {
+  text-align: center;
+  font-size: 75px;
+  color: white;
+  text-shadow: 2px 2px 4px #ffa884;
+  
+}
+
+/* Styling CREATE BREEDS -------------*/
+
+
+#createBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("/images/bckcreate.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#createTitle {
+  text-align: center;
+  margin-top: 50px;
+  color: #ffa884;
+  -webkit-text-stroke: 1px black;
+
+}
+
+#createForm {
+  background-color: #ffa884;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin-top: 20px;
+  margin-bottom: 15%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-column {
+  flex-basis: calc(50% - 10px);
+}
+
+#createForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#createForm input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#createBtn {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ffa884;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+#createBtn:hover{
+  background-color:  #f6763f;
+
+}
+#origin {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 52%;
+ 
+}
+
+#originLabel {
+  text-align: center;
+  margin-left: 85%;
+
+}
+
+
+/* Styling the DETAILS HBS ---------------- */
+#detailsBody{
+  background-image: url("/images/bckraw.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  
+}
+
+#bckDetails {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ffa884;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 99%;
+  margin: 0 auto;
+  margin-right: 15%;
+  border:  2px solid black;
+
+
+}
+
+#detailsBody .card{
+  margin-top:15%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid black;
+  padding: 5%;
+  width: 400px;
+
+}
+
+#detailsH1{
+  margin-top: 20%;
+  text-align: center;
+  color: #ffa884;
+  font-size: 50px;
+  -webkit-text-stroke: 1px black; 
+}
+
+/* Styling FILTER RESULTS!! ---------------*/
+
+#resultsBody {
+  background-color: rgba(255, 168, 132, 0.4);
+}
+
+.grid-container2 {
+  margin-top: 10%;
+  display: grid;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.breed-item2 {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+
+#resultsBody .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/images/testBck2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+#favoritebutton {
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 33%;
+  
+}
+
+#deletebutton{
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 33%;
+}
+
+#editResults{
+  background-color:#ffa884 ;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 33%;
+  border: 3px solid #f78c5d;
+
+}
+
+#resultsH1{
+  text-align: center;
+  text-align: center;
+  color: #ffa884;
+  font-size: 50px;
+  -webkit-text-stroke: 1px black; 
+}
+#resultsName{
+  color: black;
 }

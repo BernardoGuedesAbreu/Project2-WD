@@ -1,4 +1,4 @@
-
+<div id="filterBody">
 
 <form action="/dogs/filter/results" method="post" class="form-container">
   <div class="form-group">
@@ -12,7 +12,7 @@
       {{/each}}
     </div>
   </div>
-
+<div id="filterInput">
   <div class="form-group">
     <label for="minWeight">Minimum Weight:</label>
     <input type="number" name="minWeight" id="minWeight" class="form-control">
@@ -33,5 +33,8 @@
     <input type="number" name="maxHeight" id="maxHeight" class="form-control">
   </div>
 
+  
+  </div>
   <button type="submit" class="btn btn-primary">Find the perfect breed for you!</button>
 </form>
+</div>

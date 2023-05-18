@@ -1,18 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Breed Details</title>
-</head>
+
 <body>
-  <h1>{{ breed.name }}</h1>
-  <img src="{{ breed.image.url }}" alt="{{ breed.name }}">
-  <p>Weight: {{ breed.weight.metric }} Kg</p>
-  <p>Height: {{ breed.height.metric }} cm</p>
-  <p>Breed Group: {{ breed.breed_group }}</p>
-  <p>Life Span: {{ breed.life_span }}</p>
-  <p>Bred For: {{ breed.bred_for }}</p>
-  <p>Temperament: {{ breed.temperament }}</p>
-  <p>Origin: {{ breed.origin }}</p>
-  <a href="/dogs">Back to Breeds</a>
+  <div id="detailsBody">
+
+<div id="details-position">
+
+<h1 id="detailsH1">{{ breed.name }}</h1>
+
+<div class="card">
+
+<img class="card-img img-with-border" src="{{ breed.image.url }}" alt="{{ breed.name }}">
+
+
+<p><span id="vol1"><strong>Weight:</strong></span> {{ breed.weight.metric }} Kg</p>
+
+<p><span id="vol2"><strong>Height:</strong></span> {{ breed.height.metric }} cm</p>
+
+<p><span id="vol3"><strong>Breed Group:</strong></span> {{ breed.breed_group }}</p>
+
+<p><span id="vol1"><strong>Life Span:</strong>L</span> {{ breed.life_span }}</p>
+
+<p><span id="vol2"><strong>Bred For:</strong></span> {{ breed.bred_for }}</p>
+
+<p><span id="vol3"><strong>Temperament:</strong></span> {{ breed.temperament }}</p>
+
+<p><span id="vol1"><strong>Origin:</strong></span> {{ breed.origin }}</p>
+
+</div>
+
+<button id="bckDetails" onclick="location.href='/dogs'">Back to Breeds</button>
+
+
+</div>
+</div>
 </body>
-</html>
+

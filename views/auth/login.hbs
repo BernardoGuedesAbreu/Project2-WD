@@ -1,16 +1,19 @@
+<body id="loginBody">
+  
+
 <div id="login-form">
-  <h2>Log In</h2>
+  <h id="loginH2">Log In</h2>
   <form action="/auth/login" method="POST">
 
-    <label> Username
+    <label> 
       <input type="text" name="username" placeholder="Your username" />
     </label>
     
-    <label> Password
+    <label> 
       <input type="password" name="password" placeholder="Your password" />
     </label>
 
-    <button type="submit">Log In</button>
+    <button id="loginbtn" type="submit">Log In</button>
 
 
     {{#if errorMessage}}
@@ -18,3 +21,4 @@
     {{/if}}
   </form>
 </div>
+</body>

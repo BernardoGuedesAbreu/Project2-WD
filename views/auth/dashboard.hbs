@@ -1,9 +1,23 @@
-<h1>Welcome, {{userWithFavorites.username}}!</h1>
-{{#each userWithFavorites.favorites}}
-  <img src="{{image.url}}" alt="dog">
-  <h2><a href="/dogs/{{_id}}">{{name}}</a></h2>
-  <form action="/favorites/delete/{{_id}}" method="POST">
-    <button type="submit">Remove from Favorites</button>
-  </form>
-{{/each}}
+<body>
+  <div id="favoritesBody">
+    <h1 id="favoritesH1">Welcome, {{userWithFavorites.username}}!</h1>
+    <div class="grid-container">
+      {{#each userWithFavorites.favorites}}
+      <div class="breed-item">
+        <a href="/dogs/{{_id}}">
+          <div class="card">
+            <img src="{{image.url}}" alt="{{name}} Image" class="card-img img-with-border">
+            <div class="card-body">
+              <h2 class="card-title">{{name}}</h2>
+              <form action="/favorites/delete/{{_id}}" method="POST">
+                <button type="submit" class="favorite-button">Remove from Favorites</button>
+              </form>
+            </div>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
 
