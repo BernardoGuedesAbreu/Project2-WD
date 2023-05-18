@@ -143,7 +143,7 @@ button[type="submit"]:hover {
 
 }
 .grid-container {
-  margin-top: 10%;
+  margin-top: 5%;
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
@@ -164,7 +164,7 @@ button[type="submit"]:hover {
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 2px solid #f78c5d;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -198,6 +198,10 @@ button[type="submit"]:hover {
   flex-grow: 1;
 }
 
+.card-title:hover{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+}
 #breedsBody .favorite-button {
   background-color:#ffa884 ;
   color: white;
@@ -209,6 +213,10 @@ button[type="submit"]:hover {
   
 }
 
+#breedsBody .favorite-button:hover{
+  transform:scale(1.1);
+}
+
 #breedsBody .delete-button{
   background-color:#ffa884 ;
   color: white;
@@ -217,7 +225,11 @@ button[type="submit"]:hover {
   cursor: pointer;
   width: 110px;
   margin-left: 33%;
+  
+}
 
+#breedsBody .delete-button:hover{
+  transform:scale(1.1);
 }
 #breedsBody .card-link{
   background-color:#ffa884 ;
@@ -228,7 +240,30 @@ button[type="submit"]:hover {
   width: 110px;
   text-decoration: none;
   margin-left: 33%;
+  border: 3px solid #f78c5d;
   
+}
+
+#breedsBody .card-link:hover{
+  transform:scale(1.1);
+}
+
+#filterBreedsBtn{
+  display: block;
+  margin: 0 auto; 
+  font-size: 24px; 
+  background-color: #ffa884; 
+  color: white;
+  padding: 12px 24px; 
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: fit-content;
+}
+
+#filterBreedsBtn:hover{
+  transform: scale(1.1);
+  background-color: #ff7a59; 
 }
 /* #ffa884; */
 
